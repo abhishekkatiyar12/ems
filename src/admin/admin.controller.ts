@@ -68,8 +68,6 @@ export class AdminController {
    }
 
 
-
-
    private validateAdmin(email: string, password: string):boolean {
     const validEmail = 'admin@google.com'; //this emil will fetch from the db and corresponding to this we will fwtch the password which is being stored in hashed format 
     const validPassword = 'password123'; // hashed password

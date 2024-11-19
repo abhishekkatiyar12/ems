@@ -7,7 +7,18 @@ export class AppController {
 
   @Get()
   getHello() {
-    return this.appService.getHello();
+    return {
+      msg:"ashu"
+    };
+  }
+
+  
+  @Get("/login")
+  login(){
+    return '<h1>ashu</h1>'
+    
+    
+    
   }
 
 

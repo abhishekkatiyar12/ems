@@ -1,24 +1,29 @@
-import { Controller,Body,Post } from '@nestjs/common';
-import { AppService } from 'src/app.service';
-import { CreateEnquiry } from './enquiry.dto';
+import { Controller, Body, Post, Get, Param } from '@nestjs/common';
+import { EnquiryService } from './enquiry.service';
+import { CreateEnquiry } from './dto/create-enquiry.dto';
 
 @Controller('enquiry')
 export class EnquiryController {
-    constructor(private appservice: AppService){}
+  constructor(private readonly enquiryService: EnquiryService) {}
 
-     private enquiries=[];
+  @Post('/create')
+  async createEnquiry(@Body() enquiry: CreateEnquiry): Promise<CreateEnquiry> {
+    return this.enquiryService.createEnquiry(enquiry);
+  }
 
- @Post('/create')
- createEnquiry(@Body() data:CreateEnquiry) {
-     const item={
-        ...data,
-          id:new Date().getTime(),
-     }
-     this.enquiries.push(item);
-     return {
-        data:this.enquiries,
-        length:this.enquiries.length
-     };
- }
-    }
+  @Get()
+  async getAllEnquiries(): Promise<CreateEnquiry[]> {
+    return await this.enquiryService.findAll();
+  }
 
+  @Get(':id')
+  async getEnquiry(
+    @Param('id')
+    id: string,
+  ): Promise<CreateEnquiry> {
+    return this.enquiryService.findById(id);
+  }
+
+
+  
+}

@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
 import { ValidateNested, IsNotEmpty, IsEmail, IsOptional } from 'class-validator';
-import { Type } from 'class-transformer';
+
 
 // Address Schema jise hm enquiry m use krenge 
 @Schema()
@@ -32,6 +31,8 @@ export const AddressSchema = SchemaFactory.createForClass(Address);
 
 // CreateEnquiry Schema
 @Schema({ timestamps: true }) // Adds createdAt and updatedAt fields
+
+
 export class CreateEnquiry {
   @Prop({ required: true })
   @IsNotEmpty({ message: "You have to provide your first name" })
@@ -46,8 +47,6 @@ export class CreateEnquiry {
   GPhone: string;
 
   @Prop({ type: AddressSchema, required: true })
-  @ValidateNested()
-  @Type(() => Address)
   @IsNotEmpty({ message: "You have to provide your address" })
   address: Address;
 
@@ -100,4 +99,4 @@ export class CreateEnquiry {
 export const CreateEnquirySchema = SchemaFactory.createForClass(CreateEnquiry);
 
 
-export type CreateEnquiryDocument = HydratedDocument<CreateEnquiry>;
+

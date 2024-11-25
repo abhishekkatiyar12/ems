@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
-import { spec } from 'node:test/reporters';
+
 
 export class LoginAdmin {
   
@@ -7,7 +7,7 @@ export class LoginAdmin {
   @IsNotEmpty({ message: 'email de de yrr' })
   email: string;
 
-  @IsNotEmpty({ message: 'please provide paswword yrr' })
+  @IsNotEmpty({ message: 'please provide password yrr' })
   password: string;
 }
 

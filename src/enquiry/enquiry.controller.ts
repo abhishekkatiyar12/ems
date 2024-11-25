@@ -1,4 +1,4 @@
-import { Controller, Body, Post, Get, Param } from '@nestjs/common';
+import { Controller, Body, Post, Get, Param, Delete } from '@nestjs/common';
 import { EnquiryService } from './enquiry.service';
 import { CreateEnquiry } from './dto/create-enquiry.dto';
 
@@ -25,5 +25,9 @@ export class EnquiryController {
   }
 
 
+  @Delete(':id')
+  async DeleteById(@Param('id') id:string,):Promise<CreateEnquiry>{
+    return this.enquiryService.deleteById(id);
+  }
   
 }

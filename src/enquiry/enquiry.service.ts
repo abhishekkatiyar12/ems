@@ -29,4 +29,8 @@ export class EnquiryService {
     }
     return enquiry;
   }
+
+  async deleteById(id:string):Promise<CreateEnquiry>{
+    return await this.enquiryModel.findByIdAndDelete(id);
+  }
 }

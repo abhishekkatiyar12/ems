@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import {IsNotEmpty, IsEmail, IsOptional } from 'class-validator';
 
-
+// cloned project
 // Address Schema jise hm enquiry m use krenge 
 @Schema()
 export class Address {

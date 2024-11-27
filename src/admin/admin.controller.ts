@@ -13,6 +13,11 @@ export class AdminController {
         return this.AdminService.AdminLogin(details); 
     } 
 
+    @Post('Signup')
+    AdminSignUp(@Body() details:AdminDto){
+      return this.AdminService.createAdmin(details);
+    }
+
 }
 
 

@@ -5,14 +5,13 @@ import { CreateEnquiry } from './dto/create-enquiry.dto';
 
 @Injectable()
 export class EnquiryService {
-  constructor(
+  constructor( 
     @InjectModel(CreateEnquiry.name)
     private readonly enquiryModel: Model<CreateEnquiry>, // Injecting the Mongoose model
   ) {}
 
   async createEnquiry(enquiry: CreateEnquiry): Promise<CreateEnquiry> {
     const data = await this.enquiryModel.create(enquiry);
-
     return data;
   }
 

@@ -1,7 +1,7 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
 
 
-export class LoginAdmin {
+export class AdminDto {
   
   @IsEmail()
   @IsNotEmpty({ message: 'email de de yrr' })
@@ -9,5 +9,8 @@ export class LoginAdmin {
 
   @IsNotEmpty({ message: 'please provide password yrr' })
   password: string;
+
+  createdAt:Date;
+  updatedAt?:Date;
 }
 

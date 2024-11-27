@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { ValidateNested, IsNotEmpty, IsEmail, IsOptional } from 'class-validator';
+import {IsNotEmpty, IsEmail, IsOptional } from 'class-validator';
 
 
 // Address Schema jise hm enquiry m use krenge 

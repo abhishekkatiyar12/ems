@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AdminController } from './admin/admin.controller';
-import { EnquiryController } from './enquiry/enquiry.controller';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { EnquiryService } from './enquiry/enquiry.service';
 import { EnquiryModule } from './enquiry/enquiry.module';
+// import { RemarkModule } from './remark/remark.module';
 @Module({
 
   imports:[

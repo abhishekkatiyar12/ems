@@ -31,8 +31,6 @@ export class AdminService {
       if (!isPasswordValid) {
         throw new HttpException('Invalid email or password', HttpStatus.UNAUTHORIZED);
       }
-
-      
       const payload = { email: admin.email, id: admin._id }; 
       const token = this.jwtService.sign(payload);  
 
